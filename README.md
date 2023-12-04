@@ -1,5 +1,7 @@
 <h1 align="center">Free Program List Extractor(FreePLE)</h1>
 <h3 align="center">作者：平田龍輝</h3>
+<h4 align="center">スクリーンショット</h4>
+<img align="center" width="951" alt="スクリーンショット 2023-12-04 113419" src="https://github.com/HirataRYuKi/FreePLE/assets/149451479/515fd432-d103-41c1-bb46-2fd57c2dd7b2">
 
 <h3 align="left"></h3>
 <p align="left">
