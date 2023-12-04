@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FreeGSL.MainPage"
+             Shell.NavBarIsVisible="True"
+             Title="Free Program List Extractor（インストール済みプログラム抽出ソフト）"
+             >
+    <Grid>
+        <VerticalStackLayout>
+            <SearchBar x:Name="SearchBar_Bar" Placeholder="ここにアプリ名を入力してください"  SearchButtonPressed="SearchBar_Bar_SearchButtonPressed" TextChanged="SearchBar_Bar_TextChanged" 
+           HeightRequest="30" WidthRequest="500"/>
+            <Grid>
+                <Button x:Name="button" Clicked="button_Clicked" Text="エクスポート" HeightRequest="30" WidthRequest="300" HorizontalOptions="Start"/>
+                <Button x:Name="button_1" Clicked="button_Clicked_1" Text="インポート" HeightRequest="30" WidthRequest="300" HorizontalOptions="End"/>
+                <Button x:Name="button_2" Clicked="button_2_Clicked" Text="このパソコンのアプリ一覧を取得" HeightRequest="30" WidthRequest="300" HorizontalOptions="Center"/>
+            </Grid>
+            <StackLayout>
+                <ActivityIndicator x:Name="loading" Color="Purple" IsRunning="False" />
+            </StackLayout>
+        </VerticalStackLayout>
+        <ScrollView VerticalScrollBarVisibility="Always"
+        HorizontalScrollBarVisibility="Always"
+                    Margin="0,100,0,0">
+            <CollectionView x:Name="programList"
+                            SelectionMode="Single"
+                            SelectionChanged="programList_SelectionChanged"
+                            VerticalScrollBarVisibility ="Always"
+                            HorizontalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid>
+                                    <Grid.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <On Platform="iOS" Value="-20,0,0,0" />
+                                            <On Platform="Android, WinPhone, Windows" Value="0,0,0,0" />
+                                        </OnPlatform>
+                                    </Grid.Margin>
+                                    <Label Grid.Column="1"
+                                           Margin="30,3,0,-100"
+                                           Text="{Binding Name}"
+                                           HorizontalOptions="Start"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           TextColor="Black"
+                                           FontFamily="open"/>
+                                </Grid>
+                                <Label Grid.Column="1"
+                                       Margin="30,3,0,-100"
+           Text="{Binding Ver}"
+           HorizontalOptions="End"
+           FontSize="12"
+           FontAttributes="Bold"
+           TextColor="BlueViolet"
+           FontFamily="open"/>
+                                <Label Grid.Column="1"
+           Margin="30,3,0,-100"
+           Text="{Binding Url}"
+           HorizontalOptions="End"
+           FontSize="12"
+           FontAttributes="Bold"
+           TextColor="BlueViolet"
+           FontFamily="open"
+           IsVisible="false"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FreeGSL.Settings"
+             Title="設定（変更はアプリ再起動時に反映されます）"
+             Unloaded="ContentPage_Unloaded"
+             Unfocused="ContentPage_Unfocused">
+    <VerticalStackLayout>
+        <Label Text="一般" Margin="8,0,0,0"/>
+        <Grid>
+            <CheckBox x:Name="Update" IsChecked="False" CheckedChanged="Check_Update"/>
+            <Label Text="自動的にアップデートを確認する（未実装）" Margin="30,11,0,0"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="runtime" IsChecked="False" CheckedChanged="Disable_Runtime"/>
+            <Label Text="ランタイム系は非表示にする" Margin="30,11,0,0"/>
+        </Grid>
+        <Border Stroke="#000"/>
+        <Grid>
+            <CheckBox x:Name="Enable_Update" IsChecked="False" CheckedChanged="Enable_Update_CheckedChanged" />
+            <Label Text="ダウンロード機能を有効にする（未実装）" Margin="30,11,0,0"/>
+        </Grid>
+        <Grid>
+            <Button Text="お問い合わせ" x:Name="Help" Clicked="Help_Clicked" HeightRequest="30" WidthRequest="500"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
